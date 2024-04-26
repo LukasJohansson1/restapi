@@ -110,7 +110,7 @@ app.get('/users/:id', async function(req, res) {
     const connection = await getDBConnnection();
     let sql = "SELECT * FROM users WHERE id = ?";
     let [results] = await connection.execute(sql, [req.params.id]);
-    connection.end(); // Stänger anslutningen till databasen när det är klart
+    connection.end();
     if (results.length === 0) {
       return res.status(404).json({ error: "User not found" });
     }
