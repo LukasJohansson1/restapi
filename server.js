@@ -57,7 +57,7 @@ app.post('/users', async function(req, res) {
     
     const payload = { username: username };
     const token = jwt.sign(payload, TOKEN_SECRET, { expiresIn: '2m' });
-    res.json({payload , token });
+    res.json({payload});
   } catch (error) {
     console.error("Error creating user:", error);
     res.status(500).json({ error: "Internal server error" });
